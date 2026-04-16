@@ -1,0 +1,52 @@
+{
+  "skill": "feedback-loop-360",
+  "version": "0.1.0",
+  "source_book": "《不拘一格》 里德·哈斯廷斯 / 艾琳·迈耶",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "st-001",
+      "category": "should_trigger",
+      "prompt": "We want to implement 360-degree reviews at our company. How do we design them so they actually lead to improvement instead of being a checkbox exercise?",
+      "expected_behavior": "Should trigger the feedback-loop-360 skill and explain how to implement 360 reviews that drive real behavioral change, drawing from Netflix's approach to structured team feedback.",
+      "tags": ["implement 360 reviews", "structured feedback", "review design"]
+    },
+    {
+      "id": "st-002",
+      "category": "should_trigger",
+      "prompt": "I think anonymous 360 feedback is useless — people either sugarcoat or use it to settle scores. Is there a better way to do this?",
+      "expected_behavior": "Should trigger the feedback-loop-360 skill and address the anonymity problem, explaining why signed, transparent 360 feedback is more effective than anonymous approaches.",
+      "tags": ["anonymous 360 is useless", "transparency", "signed feedback"]
+    },
+    {
+      "id": "st-003",
+      "category": "should_trigger",
+      "prompt": "How do I set up a structured team feedback process where people actually give each other honest, actionable input on a regular basis?",
+      "expected_behavior": "Should trigger the feedback-loop-360 skill and provide a framework for building a regular, structured feedback loop within a team.",
+      "tags": ["structured team feedback", "feedback loop", "honest input"]
+    },
+    {
+      "id": "snt-001",
+      "category": "should_not_trigger",
+      "prompt": "What's a good daily standup format? We're an agile team and our standups have become unfocused and too long.",
+      "expected_behavior": "Should NOT trigger the feedback-loop-360 skill. This is about meeting facilitation and agile process, not about peer feedback systems or 360-degree reviews.",
+      "tags": ["daily standup", "agile process", "meeting format"]
+    },
+    {
+      "id": "snt-002",
+      "category": "should_not_trigger",
+      "prompt": "Can you give me a one-on-one meeting template? I have weekly 1:1s with my direct reports and want to make them more productive.",
+      "expected_behavior": "Should NOT trigger the feedback-loop-360 skill. This is about manager-report meeting structure, not about multi-directional peer feedback or 360 review systems.",
+      "tags": ["one-on-one meeting", "manager template", "not 360"]
+    },
+    {
+      "id": "ec-001",
+      "category": "edge_case",
+      "prompt": "My startup team is only 3 people. Is implementing a formal 360 feedback process overkill for such a small team? Or is there value in starting the habit early?",
+      "expected_behavior": "Should trigger the skill but with adaptation guidance. A 3-person team makes formal 360 reviews feel excessive, but the underlying principles (regular, structured, signed feedback) can be scaled down. The skill should provide a lightweight version appropriate for small teams while preserving the core philosophy.",
+      "tags": ["small team", "3 people", "formal vs informal", "scalability of 360"]
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "Test cases for the feedback-loop-360 concept from No Rules Rules. Netflix's 360 process emphasizes signed (non-anonymous) feedback, actionable input, and regular cadence. The skill should help teams design and implement 360 systems that produce honest improvement, not just paperwork. Small-team edge cases should be handled with a simplified adaptation."
+}

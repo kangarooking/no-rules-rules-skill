@@ -1,0 +1,59 @@
+{
+  "skill": "context-not-control",
+  "version": "0.1.0",
+  "source_book": "《不拘一格》 里德·哈斯廷斯 / 艾琳·迈耶",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "st-001",
+      "category": "should_trigger",
+      "prompt": "I keep micromanaging my team. I review every decision, ask for constant updates, and I know it's killing their motivation. How do I stop?",
+      "expected_behavior": "Should trigger the context-not-control skill and explain the principle of leading with context instead of control — providing clear goals and information rather than dictating actions.",
+      "tags": ["micromanaging", "control behavior", "leadership style"]
+    },
+    {
+      "id": "st-002",
+      "category": "should_trigger",
+      "prompt": "How do I empower my employees to make decisions without me? Right now everything flows through me and I'm the bottleneck.",
+      "expected_behavior": "Should trigger the context-not-control skill and explain how to distribute decision-making by ensuring employees have full context (business strategy, goals, constraints) rather than requiring approval at every step.",
+      "tags": ["empower employees", "founder bottleneck", "decision distribution"]
+    },
+    {
+      "id": "st-003",
+      "category": "should_trigger",
+      "prompt": "I want my teams to be more autonomous and self-directing. What does it take to build teams that can operate without a manager hovering over them?",
+      "expected_behavior": "Should trigger the context-not-control skill and explain how building autonomous teams requires investing in shared context, clear alignment on goals, and trust in decision-making capability.",
+      "tags": ["autonomous teams", "self-directing", "team independence"]
+    },
+    {
+      "id": "st-004",
+      "category": "should_trigger",
+      "prompt": "As a founder, I find myself in every important meeting and every key decision. I've become the single point of failure. How do I step back without losing control of the company direction?",
+      "expected_behavior": "Should trigger the context-not-control skill and address the founder's dilemma of being a bottleneck, explaining how to shift from controlling decisions to providing strategic context.",
+      "tags": ["founder bottleneck", "context sharing", "stepping back"]
+    },
+    {
+      "id": "snt-001",
+      "category": "should_not_trigger",
+      "prompt": "How do I delegate tasks more effectively? I have too much on my plate and need to assign work to my team members.",
+      "expected_behavior": "Should NOT trigger the context-not-control skill. Delegation is about distributing specific tasks. Context-not-control is a broader leadership philosophy about how decisions get made, not task assignment.",
+      "tags": ["delegation", "task assignment", "workload"]
+    },
+    {
+      "id": "snt-002",
+      "category": "should_not_trigger",
+      "prompt": "What project management tool do you recommend? We need something to track tasks, deadlines, and team workload.",
+      "expected_behavior": "Should NOT trigger the context-not-control skill. This is a tool selection question, not a leadership philosophy or management approach question.",
+      "tags": ["project management tool", "software selection", "tooling"]
+    },
+    {
+      "id": "ec-001",
+      "category": "edge_case",
+      "prompt": "I run a hospital department. Lives are at stake if decisions go wrong. Can the 'context not control' philosophy work in a safety-critical environment like healthcare, or does patient safety require more direct control?",
+      "expected_behavior": "Should trigger the skill with careful adaptation. The context-not-control principle can still apply — providing clinical staff with clear protocols, shared goals, and full situational context — but safety-critical environments have legitimate reasons for stricter guardrails. The skill should acknowledge this tension and offer a modified approach where context is maximized within necessary safety boundaries.",
+      "tags": ["safety-critical", "hospital", "healthcare", "context vs safety", "boundary condition"]
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "Test cases for the context-not-control concept from No Rules Rules. The core idea is that leaders should provide rich context (strategy, goals, constraints, business landscape) rather than exerting control over decisions. This empowers employees to make great decisions independently. Safety-critical edge cases require acknowledging that some control mechanisms are necessary while still maximizing context sharing within those boundaries."
+}

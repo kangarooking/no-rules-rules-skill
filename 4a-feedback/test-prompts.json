@@ -1,0 +1,59 @@
+{
+  "skill": "4a-feedback",
+  "version": "0.1.0",
+  "source_book": "《不拘一格》 里德·哈斯廷斯 / 艾琳·迈耶",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "st-001",
+      "category": "should_trigger",
+      "prompt": "I need to give a team member negative feedback about their presentation skills but I'm afraid it will hurt our relationship. How should I approach this?",
+      "expected_behavior": "Should trigger the 4a-feedback skill and provide guidance on delivering constructive feedback using the 4A framework (Aim to Assist, Actionable, Appreciated).",
+      "tags": ["giving feedback", "difficult conversation", "negative feedback"]
+    },
+    {
+      "id": "st-002",
+      "category": "should_trigger",
+      "prompt": "My team avoids honest feedback and everything stays polite but superficial. How do I build a real feedback culture?",
+      "expected_behavior": "Should trigger the 4a-feedback skill and address building a feedback culture based on radical candor principles from the book.",
+      "tags": ["team feedback culture", "honest feedback", "team dynamics"]
+    },
+    {
+      "id": "st-003",
+      "category": "should_trigger",
+      "prompt": "How do I tell someone something negative without being mean? I want to be honest but not cruel.",
+      "expected_behavior": "Should trigger the 4a-feedback skill and explain how to deliver negative feedback constructively using the 4A method.",
+      "tags": ["difficult conversation", "negative feedback", "communication"]
+    },
+    {
+      "id": "st-004",
+      "category": "should_trigger",
+      "prompt": "A colleague's code reviews are consistently unhelpful and dismissive. I want to give them feedback on how they review code but I'm not sure how to frame it.",
+      "expected_behavior": "Should trigger the 4a-feedback skill and guide the user through structuring actionable feedback about a colleague's behavior.",
+      "tags": ["giving feedback", "actionable feedback", "workplace communication"]
+    },
+    {
+      "id": "snt-001",
+      "category": "should_not_trigger",
+      "prompt": "Help me write an angry email to my boss about being underpaid. I want to make sure they feel my frustration.",
+      "expected_behavior": "Should NOT trigger the 4a-feedback skill. This is about venting anger, not constructive feedback. The prompt seeks escalation rather than feedback improvement.",
+      "tags": ["anger", "escalation", "not feedback"]
+    },
+    {
+      "id": "snt-002",
+      "category": "should_not_trigger",
+      "prompt": "What do you think of my code? Here is a snippet I wrote for a sorting algorithm.",
+      "expected_behavior": "Should NOT trigger the 4a-feedback skill. This is a request for code review/evaluation, not about learning how to give or receive interpersonal feedback.",
+      "tags": ["code review", "general evaluation", "not interpersonal feedback"]
+    },
+    {
+      "id": "ec-001",
+      "category": "edge_case",
+      "prompt": "I want to give feedback to a colleague about their personal appearance and hygiene. It's affecting how clients perceive our team. How should I handle this?",
+      "expected_behavior": "Should trigger the skill with caveats. The 4A framework can apply, but this scenario requires special handling due to HR sensitivities and legal considerations. The skill should acknowledge this is a delicate situation that may require HR involvement.",
+      "tags": ["personal appearance", "sensitive topic", "HR boundary", "delicate feedback"]
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "Test cases for the 4A feedback model from No Rules Rules. The 4A framework emphasizes feedback that is Aimed to Assist, Actionable, and received with Appreciation. Edge cases should be handled carefully when topics drift into HR-sensitive territory."
+}

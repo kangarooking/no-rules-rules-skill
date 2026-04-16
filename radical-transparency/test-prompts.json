@@ -1,0 +1,66 @@
+{
+  "skill": "radical-transparency",
+  "version": "0.1.0",
+  "source_book": "《不拘一格》 里德·哈斯廷斯 / 艾琳·迈耶",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "rt-should-001",
+      "category": "should_trigger",
+      "prompt": "Should I share our quarterly financial results and strategic plans with the entire company, including junior employees? I'm worried about leaks.",
+      "expected_behavior": "Should trigger radical-transparency skill. Should advocate for sharing broadly, explain how transparency builds trust and enables better decentralized decision-making, and address the leak concern as manageable.",
+      "assertion": "response_mentions_any_of: ['transparency', 'share broadly', 'trust', '透明', 'everyone', 'all employees', 'open communication']"
+    },
+    {
+      "id": "rt-should-002",
+      "category": "should_trigger",
+      "prompt": "I want to practice transparent leadership but I'm not sure how far to go. What does radical transparency look like in practice?",
+      "expected_behavior": "Should trigger radical-transparency skill. Should provide concrete examples: sharing financials, strategy docs, open meetings, sunshining debates, and explain the cultural benefits observed at Netflix.",
+      "assertion": "response_mentions_any_of: ['radical transparency', 'financial data', 'strategy', 'open meetings', '极度透明', '阳光化', 'sunshining']"
+    },
+    {
+      "id": "rt-should-003",
+      "category": "should_trigger",
+      "prompt": "Our company has terrible information silos. Each department hoards data and nobody knows what's happening. How do we fix this?",
+      "expected_behavior": "Should trigger radical-transparency skill. Should diagnose the silo problem as a lack of transparency culture and recommend practices like open documents, all-hands financial reviews, and cross-functional information sharing.",
+      "assertion": "response_mentions_any_of: ['silos', 'transparency', 'information sharing', '信息孤岛', 'open access', 'communication']"
+    },
+    {
+      "id": "rt-should-004",
+      "category": "should_trigger",
+      "prompt": "We're planning major organizational changes and layoffs. When should we tell employees? Most executives want to wait until everything is finalized.",
+      "expected_behavior": "Should trigger radical-transparency skill. Should argue for earlier communication rather than waiting, explain how delayed transparency erodes trust, and provide guidance on how to communicate uncertain information honestly.",
+      "assertion": "response_mentions_any_of: ['early', 'communicate', 'honest', '提前沟通', 'trust', 'as soon as possible', 'inform early']"
+    },
+    {
+      "id": "rt-no-001",
+      "category": "should_not_trigger",
+      "prompt": "How do we keep our product roadmap and strategy secret from competitors? I need NDAs and confidentiality best practices.",
+      "expected_behavior": "Should NOT trigger radical-transparency skill as a primary recommendation. The user is explicitly asking how to keep secrets from competitors, which is the opposite of transparency. Should be handled as a general confidentiality/legal question.",
+      "assertion": "response_does_not_mention_any_of: ['radical transparency', '极度透明'] OR response_primary_focus_is_not: 'radical-transparency'"
+    },
+    {
+      "id": "rt-no-002",
+      "category": "should_not_trigger",
+      "prompt": "An employee asked me what their coworker's salary is. How should I handle this?",
+      "expected_behavior": "Should NOT trigger radical-transparency skill as the primary response. This is about individual privacy and pay transparency laws, not about the organizational transparency philosophy from the book. May reference transparency principles but should focus on legal and privacy considerations.",
+      "assertion": "response_does_not_unconditionally_recommend: 'share all salary data immediately'"
+    },
+    {
+      "id": "rt-no-003",
+      "category": "should_not_trigger",
+      "prompt": "We're dealing with a PR crisis after a data breach. How should we manage media coverage and public statements?",
+      "expected_behavior": "Should NOT trigger radical-transparency skill as primary. This is a crisis communications / PR management question requiring professional comms strategy, not the internal transparency philosophy.",
+      "assertion": "response_does_not_mention_any_of: ['radical transparency', '极度透明'] OR response_primary_focus_is_not: 'radical-transparency'"
+    },
+    {
+      "id": "rt-edge-001",
+      "category": "edge_case",
+      "prompt": "We're preparing for an IPO in 6 months. Our legal team says we must stop sharing detailed financial data internally due to quiet period regulations. How do we maintain our culture of radical transparency while complying with securities law?",
+      "expected_behavior": "Edge case: should acknowledge the real legal tension between radical transparency and pre-IPO regulations. Should NOT dismiss legal requirements. Should offer practical adaptations: share what is legally permissible, be transparent about WHY certain information can no longer be shared, find alternative ways to maintain trust (e.g., sharing process even when specific data is restricted).",
+      "assertion": "response_mentions_any_of: ['legal', 'regulation', 'IPO', 'quiet period', 'compliance', '合规', 'adapt', 'balance'] AND response_does_not_unconditionally_recommend: 'ignore legal requirements for transparency'"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "Tests for the radical-transparency skill from 'No Rules Rules'. Netflix's philosophy: default to open, share financial and strategic information with all employees, 'sunshine' debates and disagreements openly, trust employees with sensitive information. Edge cases explore legal boundaries and pre-IPO constraints."
+}

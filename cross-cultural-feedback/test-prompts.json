@@ -1,0 +1,59 @@
+{
+  "skill": "cross-cultural-feedback",
+  "version": "0.1.0",
+  "source_book": "《不拘一格》 里德·哈斯廷斯 / 艾琳·迈耶",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "ccf-should-001",
+      "category": "should_trigger",
+      "prompt": "I manage a multicultural team with members from Japan, Netherlands, Brazil, and the US. How do I create a feedback culture that works across all these different communication styles?",
+      "expected_behavior": "Should trigger cross-cultural-feedback skill. Should discuss Erin Meyer's culture map dimensions (especially evaluating and disagreeing scales), explain how feedback norms differ by culture (direct vs indirect), and provide practical frameworks for bridging cultural differences in feedback.",
+      "assertion": "response_mentions_any_of: ['culture map', 'direct vs indirect', 'multicultural', 'cultural difference', '文化差异', 'direct feedback', 'feedback culture', 'Erin Meyer']"
+    },
+    {
+      "id": "ccf-should-002",
+      "category": "should_trigger",
+      "prompt": "I gave what I thought was constructive feedback to my Japanese colleague, but she seemed deeply offended and hasn't spoken to me since. What went wrong?",
+      "expected_behavior": "Should trigger cross-cultural-feedback skill. Should explain how Japanese feedback culture tends to be more indirect and relationship-preserving, discuss the concept of 'reading the air', and recommend adapting feedback style based on cultural context.",
+      "assertion": "response_mentions_any_of: ['Japanese', 'indirect', 'culture', 'feedback style', '日本', '间接', 'cultural context', 'relationship']"
+    },
+    {
+      "id": "ccf-should-003",
+      "category": "should_trigger",
+      "prompt": "How should I give critical feedback to a Dutch colleague? I've heard Dutch communication is very direct but I want to make sure I do it right.",
+      "expected_behavior": "Should trigger cross-cultural-feedback skill. Should explain that Dutch culture tends toward very direct feedback (high on the evaluating scale), and that being straightforward and honest is expected and respected rather than considered rude.",
+      "assertion": "response_mentions_any_of: ['Dutch', 'direct', 'Netherlands', '荷兰', 'straightforward', 'blunt', 'honest', 'feedback style']"
+    },
+    {
+      "id": "ccf-no-001",
+      "category": "should_not_trigger",
+      "prompt": "What are some good team building activities for a diverse team of 20 people? We have members from 8 different countries.",
+      "expected_behavior": "Should NOT trigger cross-cultural-feedback skill. This is about team building activities and social events, not about giving or receiving feedback across cultures.",
+      "assertion": "response_does_not_mention_any_of: ['cross-cultural feedback', '跨文化反馈', 'feedback culture'] OR response_primary_focus_is_not: 'cross-cultural-feedback'"
+    },
+    {
+      "id": "ccf-no-002",
+      "category": "should_not_trigger",
+      "prompt": "What are the best language translation tools and tips for a team that speaks 5 different languages?",
+      "expected_behavior": "Should NOT trigger cross-cultural-feedback skill. This is about translation tooling and language logistics, not about cultural differences in feedback or communication norms.",
+      "assertion": "response_does_not_mention_any_of: ['cross-cultural feedback', '跨文化反馈', 'feedback culture', 'culture map']"
+    },
+    {
+      "id": "ccf-no-003",
+      "category": "should_not_trigger",
+      "prompt": "What's the proper video call etiquette for international meetings? Camera on or off? Mute when not speaking?",
+      "expected_behavior": "Should NOT trigger cross-cultural-feedback skill. This is about meeting etiquette and technical norms, not about cross-cultural feedback delivery.",
+      "assertion": "response_does_not_mention_any_of: ['cross-cultural feedback', '跨文化反馈', 'feedback style', 'culture map']"
+    },
+    {
+      "id": "ccf-edge-001",
+      "category": "edge_case",
+      "prompt": "One of my team members grew up in Germany but has lived in Japan for 15 years and is fluent in both cultures. When giving feedback, should I use the German direct style or the Japanese indirect style? They understand both norms perfectly.",
+      "expected_behavior": "Edge case: should acknowledge this is an unusual situation where the person bridges two very different feedback cultures. Should recommend asking the individual about their preferred feedback style rather than assuming, discuss how bicultural individuals may have hybrid preferences, and note that the safest approach is explicit metacommunication about feedback norms.",
+      "assertion": "response_mentions_any_of: ['ask them', 'preference', 'bicultural', 'hybrid', 'meta-communication', '直接询问', '偏好', 'bridge', 'explicit conversation']"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "Tests for the cross-cultural-feedback skill from 'No Rules Rules'. Co-author Erin Meyer's research on cultural dimensions (especially the Evaluating and Disagreeing scales from The Culture Map) is central. The skill helps navigate feedback across cultures with very different norms for directness, criticism, and face-saving. Edge cases explore bicultural individuals who exist outside simple cultural categories."
+}

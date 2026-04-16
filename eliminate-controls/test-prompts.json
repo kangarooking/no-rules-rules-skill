@@ -1,0 +1,66 @@
+{
+  "skill": "eliminate-controls",
+  "version": "0.1.0",
+  "source_book": "《不拘一格》 里德·哈斯廷斯 / 艾琳·迈耶",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "econ-should-001",
+      "category": "should_trigger",
+      "prompt": "We're considering switching to an unlimited vacation policy. What are the pros and cons, and how does it work in practice?",
+      "expected_behavior": "Should trigger eliminate-controls skill. Should explain Netflix's unlimited vacation approach, the philosophy of trusting employees to act responsibly, the importance of managers modeling good behavior, and potential pitfalls to watch for.",
+      "assertion": "response_mentions_any_of: ['unlimited vacation', 'trust', 'no formal policy', '无限假期', '信任', 'eliminate', 'remove controls']"
+    },
+    {
+      "id": "econ-should-002",
+      "category": "should_trigger",
+      "prompt": "Our expense policy is 20 pages long and employees hate it. How can we simplify it without opening the door to abuse?",
+      "expected_behavior": "Should trigger eliminate-controls skill. Should recommend simplifying or eliminating detailed expense policies in favor of trusting employees to act in the company's best interest, referencing Netflix's approach of 'act in Netflix's best interest' as the entire policy.",
+      "assertion": "response_mentions_any_of: ['expense policy', 'simplify', 'trust', 'act in best interest', '费用政策', '简化', 'Netflix policy']"
+    },
+    {
+      "id": "econ-should-003",
+      "category": "should_trigger",
+      "prompt": "We have a 5-level approval process for even small purchases and decisions. It's killing productivity. How do we remove approval bottlenecks and build a trust-based culture?",
+      "expected_behavior": "Should trigger eliminate-controls skill. Should advocate for reducing or eliminating approval chains, explain how controls signal distrust and slow velocity, and recommend trusting high-performing employees to make decisions autonomously.",
+      "assertion": "response_mentions_any_of: ['approval', 'trust', 'autonomy', 'remove', '审批', '信任', 'eliminate controls', 'bottleneck']"
+    },
+    {
+      "id": "econ-should-004",
+      "category": "should_trigger",
+      "prompt": "How do you build a trust-based culture where you don't need to monitor and control every employee action?",
+      "expected_behavior": "Should trigger eliminate-controls skill. Should explain that eliminating controls works when paired with high talent density and candid feedback, describe how trust is a reinforcing cycle, and caution that it requires the right foundation.",
+      "assertion": "response_mentions_any_of: ['trust-based', 'talent density', 'feedback', 'radical honesty', '信任文化', 'talent', 'candid']"
+    },
+    {
+      "id": "econ-no-001",
+      "category": "should_not_trigger",
+      "prompt": "What's the best time tracking software to monitor employee hours and ensure people are working their full schedule?",
+      "expected_behavior": "Should NOT trigger eliminate-controls skill as primary. The user is explicitly looking for monitoring/control tools, which is the opposite philosophy. Should address as a general tooling question.",
+      "assertion": "response_does_not_mention_any_of: ['eliminate controls', '取消管控', 'trust-based'] OR response_primary_focus_is_not: 'eliminate-controls'"
+    },
+    {
+      "id": "econ-no-002",
+      "category": "should_not_trigger",
+      "prompt": "I need to set up an expense approval workflow in SAP. Can you walk me through the configuration steps?",
+      "expected_behavior": "Should NOT trigger eliminate-controls skill. This is a technical SAP configuration question, not a philosophical discussion about control elimination.",
+      "assertion": "response_does_not_mention_any_of: ['eliminate controls', '取消管控', 'Netflix philosophy']"
+    },
+    {
+      "id": "econ-no-003",
+      "category": "should_not_trigger",
+      "prompt": "What's the best time-off request system? We need something that tracks PTO balances and requires manager approval.",
+      "expected_behavior": "Should NOT trigger eliminate-controls skill as primary. The user is asking for a control-heavy system with PTO tracking and approvals, the opposite of the eliminate-controls philosophy.",
+      "assertion": "response_does_not_unconditionally_recommend: 'eliminate your time-off system entirely'"
+    },
+    {
+      "id": "econ-edge-001",
+      "category": "edge_case",
+      "prompt": "I work in banking where regulations require strict audit trails, approval logs, and compliance controls. We can't just eliminate controls like Netflix does. Is there any way to apply the eliminate-controls philosophy in a heavily regulated industry like ours?",
+      "expected_behavior": "Edge case: should acknowledge that banking has non-negotiable regulatory requirements that cannot be eliminated. Should identify areas where controls CAN be reduced (internal culture, non-regulated processes, communication policies) while respecting mandatory compliance. Should NOT recommend ignoring regulatory requirements. Should offer a spectrum approach: eliminate where possible, streamline where you can't eliminate, and be transparent about why certain controls remain.",
+      "assertion": "response_mentions_any_of: ['regulation', 'compliance', 'banking', '监管', '合规', 'adapt', 'spectrum', 'selective'] AND response_does_not_unconditionally_recommend: 'eliminate all controls regardless of regulation'"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "Tests for the eliminate-controls skill from 'No Rules Rules'. Netflix's philosophy: remove vacation policies, expense policies, and approval processes in favor of trusting high-performing employees. Works best when combined with high talent density and candid feedback culture. Edge cases explore heavily regulated industries where some controls are legally mandated."
+}

@@ -1,0 +1,66 @@
+{
+  "skill": "elite-compensation",
+  "version": "0.1.0",
+  "source_book": "《不拘一格》 里德·哈斯廷斯 / 艾琳·迈耶",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "ec-should-001",
+      "category": "should_trigger",
+      "prompt": "I'm designing our company's compensation strategy from scratch. How should we think about pay to attract and retain the best people?",
+      "expected_behavior": "Should trigger elite-compensation skill. Should recommend paying top-of-market rates for top performers, explain the Netflix philosophy that one elite performer is worth many average ones, and discuss why traditional salary bands may underpay stars.",
+      "assertion": "response_mentions_any_of: ['top of market', 'elite', 'top performer', '市场最高薪', '精英', 'talent density']"
+    },
+    {
+      "id": "ec-should-002",
+      "category": "should_trigger",
+      "prompt": "Should I use performance bonuses and variable pay to motivate my engineering team? Or is there a better approach?",
+      "expected_behavior": "Should trigger elite-compensation skill. Should explain why Netflix moved away from bonuses in favor of pure top-of-market base salaries, and why fixed high compensation outperforms variable bonus structures for knowledge workers.",
+      "assertion": "response_mentions_any_of: ['bonus', 'base salary', 'variable pay', '奖金', '固定薪酬', 'no bonus', 'pure salary']"
+    },
+    {
+      "id": "ec-should-003",
+      "category": "should_trigger",
+      "prompt": "We keep losing our best engineers to competitors offering 30% more. How do we stop the talent drain?",
+      "expected_behavior": "Should trigger elite-compensation skill. Should address the cost of losing elite talent vs paying top-of-market rates, and explain the economic logic behind investing more in fewer elite performers.",
+      "assertion": "response_mentions_any_of: ['top of market', 'retention', 'talent', '流失', 'retaining', 'pay more']"
+    },
+    {
+      "id": "ec-should-004",
+      "category": "should_trigger",
+      "prompt": "Are traditional salary bands and pay grades the right way to manage compensation? I feel like they hold back our best people.",
+      "expected_behavior": "Should trigger elite-compensation skill. Should discuss why rigid salary bands can be problematic for elite performers and advocate for individualized top-of-market pay based on each person's value.",
+      "assertion": "response_mentions_any_of: ['salary band', 'pay grade', '薪酬区间', 'individualized', 'flexible', 'rigid']"
+    },
+    {
+      "id": "ec-no-001",
+      "category": "should_not_trigger",
+      "prompt": "How do I negotiate my own salary and get the best offer from a new employer?",
+      "expected_behavior": "Should NOT trigger elite-compensation skill as a primary recommendation. This is about individual negotiation tactics, not organizational compensation philosophy.",
+      "assertion": "response_does_not_mention_any_of: ['elite compensation', '精英薪酬', 'talent density'] OR response_primary_focus_is_not: 'elite-compensation'"
+    },
+    {
+      "id": "ec-no-002",
+      "category": "should_not_trigger",
+      "prompt": "Should I choose equity or cash compensation for my startup job offer? What are the tax implications?",
+      "expected_behavior": "Should NOT trigger elite-compensation skill. This is a personal finance/equity structure question, not about organizational compensation design philosophy.",
+      "assertion": "response_does_not_mention_any_of: ['elite compensation', '精英薪酬', 'top of market', '市场最高']"
+    },
+    {
+      "id": "ec-no-003",
+      "category": "should_not_trigger",
+      "prompt": "What's the best commission structure for a B2B sales team? We need to drive more revenue.",
+      "expected_behavior": "Should NOT trigger elite-compensation skill. Commission structures for sales teams are a specialized domain. While related to compensation, the elite compensation model specifically addresses knowledge workers and is anti-bonus.",
+      "assertion": "response_does_not_mention_any_of: ['elite compensation', '精英薪酬'] OR response_primary_focus_is_not: 'elite-compensation'"
+    },
+    {
+      "id": "ec-edge-001",
+      "category": "edge_case",
+      "prompt": "I'm running a bootstrapped startup with limited funding. I believe in the elite compensation principle from Netflix, but I literally cannot afford top-of-market salaries. How can I apply this philosophy without the budget to match?",
+      "expected_behavior": "Edge case: should acknowledge the tension between the elite compensation ideal and budget reality. Should provide practical adaptations: offering equity upside, focusing talent density in a few critical roles, hiring fewer but better people, or creative non-monetary benefits. Should NOT dismiss the model entirely or suggest it's impossible to apply in any form.",
+      "assertion": "response_mentions_any_of: ['budget', 'equity', 'startup', 'talent density', '预算', '股权', 'fewer but better', 'adaptation'] AND response_does_not_unconditionally_recommend: 'abandon the principle entirely'"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "Tests for the elite-compensation skill from 'No Rules Rules'. Netflix's philosophy: pay top-of-market for top performers, eliminate bonuses in favor of high base salary, invest in fewer elite employees rather than more average ones. Edge cases explore budget constraints and startup applicability."
+}

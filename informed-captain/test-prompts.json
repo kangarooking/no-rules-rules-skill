@@ -1,0 +1,66 @@
+{
+  "skill": "informed-captain",
+  "version": "0.1.0",
+  "source_book": "《不拘一格》 里德·哈斯廷斯 / 艾琳·迈耶",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "ic-should-001",
+      "category": "should_trigger",
+      "prompt": "We're facing a major decision about whether to pivot our product strategy. The team has been debating for two weeks with no resolution. How should we make this decision?",
+      "expected_behavior": "Should trigger informed-captain skill. Recommends designating one well-informed individual as the decision-maker rather than seeking consensus, explains the informed captain model where the person closest to the information drives the decision.",
+      "assertion": "response_mentions_any_of: ['informed captain', 'decision-maker', 'designated decision maker', '一人拍板', '知情队长']"
+    },
+    {
+      "id": "ic-should-002",
+      "category": "should_trigger",
+      "prompt": "My team has fallen into groupthink on our architecture choices. Everyone just agrees with the loudest person in the room. How do I break this pattern and make better decisions?",
+      "expected_behavior": "Should trigger informed-captain skill. Addresses how the informed captain model combats groupthink by empowering the most informed person to decide rather than defaulting to consensus or social pressure.",
+      "assertion": "response_mentions_any_of: ['groupthink', 'informed', 'decision owner', 'consensus trap', '一人决策', '信息最充分']"
+    },
+    {
+      "id": "ic-should-003",
+      "category": "should_trigger",
+      "prompt": "My subordinate made a technical decision I disagree with. Should I veto it? What's the right approach here as a manager?",
+      "expected_behavior": "Should trigger informed-captain skill. Guides the manager to consider whether the subordinate is the most informed person about this decision, and advises against vetoing unless there's a critical reason, emphasizing the informed captain principle.",
+      "assertion": "response_mentions_any_of: ['informed captain', 'veto', 'override', '否决', '决策权', 'most informed']"
+    },
+    {
+      "id": "ic-should-004",
+      "category": "should_trigger",
+      "prompt": "What's better for our engineering team: consensus-based decision making or letting individuals own decisions? We keep going back and forth.",
+      "expected_behavior": "Should trigger informed-captain skill. Explains why consensus can slow things down and how the informed captain model provides clarity and speed by assigning decision ownership to the best-informed person.",
+      "assertion": "response_mentions_any_of: ['consensus', 'informed captain', 'decision speed', '共识', 'individual decision', '决策效率']"
+    },
+    {
+      "id": "ic-no-001",
+      "category": "should_not_trigger",
+      "prompt": "Help me decide what to order for lunch. The team can't agree on Thai or Mexican food.",
+      "expected_behavior": "Should NOT trigger informed-captain skill. This is a trivial personal choice, not a strategic or organizational decision. General advice or humor is more appropriate.",
+      "assertion": "response_does_not_mention_any_of: ['informed captain', '知情队长', 'decision framework', '决策框架']"
+    },
+    {
+      "id": "ic-no-002",
+      "category": "should_not_trigger",
+      "prompt": "I want to implement democratic voting in my team for all decisions. What tools should I use?",
+      "expected_behavior": "Should NOT trigger informed-captain skill as a primary recommendation. The user is explicitly asking about democratic voting tools, not about decision-making philosophy. Should be handled as a general leadership or tooling question.",
+      "assertion": "response_does_not_mention_any_of: ['informed captain', '知情队长'] OR response_primary_focus_is_not: 'informed-captain'"
+    },
+    {
+      "id": "ic-no-003",
+      "category": "should_not_trigger",
+      "prompt": "How do I convince my boss to approve my project proposal? I need persuasion techniques.",
+      "expected_behavior": "Should NOT trigger informed-captain skill. This is about upward persuasion and influence tactics, not about decision-making authority models.",
+      "assertion": "response_does_not_mention_any_of: ['informed captain', '知情队长', 'decision owner', '决策权归属']"
+    },
+    {
+      "id": "ic-edge-001",
+      "category": "edge_case",
+      "prompt": "We have a safety-critical decision about whether to deploy a patch to our medical device firmware. The lead engineer wants to ship it, but I'm the manager and I'm not fully confident. The team is split. What does the informed captain model say about decisions with potential safety implications?",
+      "expected_behavior": "Edge case: should acknowledge the informed captain principle but also emphasize that safety-critical decisions may require additional safeguards, consensus from safety experts, or regulatory review beyond what the standard model prescribes. The skill should not recommend a single individual's judgment when lives or safety are at stake without strong caveats.",
+      "assertion": "response_mentions_any_of: ['informed captain', 'safety', 'risk', 'regulatory', '安全', '风险'] AND response_does_not_unconditionally_recommend: 'single person decides without caveats'"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "Tests for the informed-captain skill from 'No Rules Rules'. The informed captain model, as practiced at Netflix, assigns decision ownership to the person with the most relevant information rather than defaulting to hierarchy or consensus. Edge cases explore limits where safety, legal, or ethical considerations may override the standard model."
+}

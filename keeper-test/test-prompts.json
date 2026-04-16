@@ -1,0 +1,52 @@
+{
+  "skill": "keeper-test",
+  "version": "0.1.0",
+  "source_book": "《不拘一格》 里德·哈斯廷斯 / 艾琳·迈耶",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "st-001",
+      "category": "should_trigger",
+      "prompt": "I have an employee who does their job fine — not bad, not great. If they told me they were leaving for another job, I'd probably feel neutral, maybe slightly relieved. Should I keep them?",
+      "expected_behavior": "Should trigger the keeper-test skill and explain the Keeper Test: if you wouldn't fight to keep someone, they should go. A neutral reaction is a clear signal.",
+      "tags": ["should I keep this employee", "employee fine but not great", "keeper test"]
+    },
+    {
+      "id": "st-002",
+      "category": "should_trigger",
+      "prompt": "I'm thinking about letting one of my direct reports go. They meet expectations but never exceed them. How do I evaluate whether this is the right decision?",
+      "expected_behavior": "Should trigger the keeper-test skill and walk the user through the Keeper Test framework — asking whether they would actively fight to retain this person.",
+      "tags": ["thinking about letting someone go", "adequate performer", "evaluation"]
+    },
+    {
+      "id": "st-003",
+      "category": "should_trigger",
+      "prompt": "My manager told me I 'passed the keeper test' but I've never heard of it. What does that mean and how does Netflix use it?",
+      "expected_behavior": "Should trigger the keeper-test skill and explain the Keeper Test concept, its origins at Netflix, and how it's used as a continuous talent evaluation tool.",
+      "tags": ["keeper test explained", "Netflix practice", "talent evaluation"]
+    },
+    {
+      "id": "snt-001",
+      "category": "should_not_trigger",
+      "prompt": "How do I create a performance improvement plan (PIP) for an employee who has been missing deadlines? I need the HR documentation.",
+      "expected_behavior": "Should NOT trigger the keeper-test skill. This is about PIP process and HR documentation, not about the philosophical evaluation of whether to keep someone using the Keeper Test.",
+      "tags": ["PIP", "performance improvement plan", "HR process"]
+    },
+    {
+      "id": "snt-002",
+      "category": "should_not_trigger",
+      "prompt": "An employee made a serious mistake on a client deliverable. How should I handle this situation?",
+      "expected_behavior": "Should NOT trigger the keeper-test skill. This is about addressing a specific incident or mistake, not about an overall assessment of whether the person is worth retaining on the team.",
+      "tags": ["specific mistake", "incident handling", "not retention decision"]
+    },
+    {
+      "id": "ec-001",
+      "category": "edge_case",
+      "prompt": "The person I'm evaluating is a close personal friend of the company founder. They're an adequate performer — not bad, but not someone I'd fight to keep. However, letting them go would create political fallout with the founder. How do I apply the Keeper Test here?",
+      "expected_behavior": "Should trigger the skill but acknowledge the objectivity problem. The Keeper Test requires honest assessment, but personal relationships with founders compromise that objectivity. The skill should address how to navigate political dynamics while still applying the test principle, potentially suggesting a third-party evaluator or direct conversation with the founder.",
+      "tags": ["founder's friend", "objectivity compromised", "politics", " Keeper Test boundary"]
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "Test cases for the Keeper Test from No Rules Rules. The Keeper Test asks: 'If this person told me they were leaving for a similar role at a competitor, would I fight to keep them?' If the answer is no, it's time to let them go with a generous severance. Edge cases should address situations where personal bias or political dynamics compromise the test's required objectivity."
+}

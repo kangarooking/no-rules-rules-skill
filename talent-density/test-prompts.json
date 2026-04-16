@@ -1,0 +1,59 @@
+{
+  "skill": "talent-density",
+  "version": "0.1.0",
+  "source_book": "《不拘一格》 里德·哈斯廷斯 / 艾琳·迈耶",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "st-001",
+      "category": "should_trigger",
+      "prompt": "My team has been underperforming for two quarters. I have a mix of average and good performers but nobody exceptional. How do I think about rebuilding this team?",
+      "expected_behavior": "Should trigger the talent-density skill and explain the concept of talent density — that a team of exceptional performers outperforms a larger team of adequate ones.",
+      "tags": ["team underperforming", "team composition", "talent density"]
+    },
+    {
+      "id": "st-002",
+      "category": "should_trigger",
+      "prompt": "I have a team member who is really nice and everyone loves them, but their work is just mediocre. Should I let them go even though it will hurt team morale?",
+      "expected_behavior": "Should trigger the talent-density skill and address the 'adequate performer with great attitude' dilemma, explaining why maintaining talent density requires difficult decisions.",
+      "tags": ["fire someone nice but mediocre", "talent density vs likability"]
+    },
+    {
+      "id": "st-003",
+      "category": "should_trigger",
+      "prompt": "We have a brilliant engineer who is toxic to work with — dismissive, arrogant, and refuses to collaborate. Should we keep them because they're so talented?",
+      "expected_behavior": "Should trigger the talent-density skill and explain the 'brilliant jerk' concept — that talent density requires both high performance AND good collaborative behavior, not just technical brilliance.",
+      "tags": ["brilliant jerk", "toxic talent", "collaboration"]
+    },
+    {
+      "id": "st-004",
+      "category": "should_trigger",
+      "prompt": "I'm thinking about my team composition for next year. Should I aim for a smaller team of rockstars or a larger team of solid contributors?",
+      "expected_behavior": "Should trigger the talent-density skill and explain why a high-density team (fewer exceptional people) consistently outperforms a larger team of adequate performers.",
+      "tags": ["team composition", "talent density", "hiring strategy"]
+    },
+    {
+      "id": "snt-001",
+      "category": "should_not_trigger",
+      "prompt": "How do I hire more people? My startup just got funded and I need to grow the team from 5 to 20 quickly.",
+      "expected_behavior": "Should NOT trigger the talent-density skill. This is a hiring logistics and recruitment question, not about team quality or talent density trade-offs.",
+      "tags": ["hiring process", "recruitment", "team growth"]
+    },
+    {
+      "id": "snt-002",
+      "category": "should_not_trigger",
+      "prompt": "My team is too small — we only have 3 engineers and the workload is crushing us. We're all burning out.",
+      "expected_behavior": "Should NOT trigger the talent-density skill. This is a staffing shortage and burnout problem, not a question about team composition philosophy or talent quality.",
+      "tags": ["understaffed", "burnout", "resource constraint"]
+    },
+    {
+      "id": "ec-001",
+      "category": "edge_case",
+      "prompt": "One of my best engineers is extremely good but also extremely expensive — they earn 3x the market rate. At what point does the cost undermine the value of talent density? I'm not sure I can afford to keep building the team this way.",
+      "expected_behavior": "Should trigger the skill but with nuanced discussion. The talent-density philosophy advocates for paying top-of-market, but this prompt challenges where the boundary lies between investing in talent and fiscal sustainability. The skill should address the tension between talent density and budget reality.",
+      "tags": ["cost vs talent", "compensation", "budget tension", "talent density boundary"]
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "Test cases for the talent-density concept from No Rules Rules. Talent density is the idea that a team of exceptional performers outperforms a larger team of adequate ones. The skill should help leaders evaluate team composition through this lens while recognizing real-world cost constraints."
+}
