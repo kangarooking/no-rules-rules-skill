@@ -105,6 +105,7 @@ no-rules-rules-skill/
 
 ## More Skills
 
+- [Buffett Letters Skill](https://github.com/kangarooking/buffett-letters-skill) — バフェットの60年以上の株主への手紙から抽出した20個の投資判断スキル
 - [Poor Charlie's Almanack Skill](https://github.com/kangarooking/poor-charlies-almanack-skill) — チャーリー・マンガーのコア思考法から抽出した12個の意思決定・判断スキル
 
 ## License
