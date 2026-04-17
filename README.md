@@ -126,7 +126,7 @@ no-rules-rules-skill/
 
 微信公众号「袋鼠帝 AI 客栈」二维码：
 
-![](https://raw.githubusercontent.com/kangarooking/cangjie-skill/main/assets/kangarooking-gzh.jpg)
+![](https://raw.githubusercontent.com/kangarooking/cangjie-skill/main/assets/kangarooking-gzh.png)
 
 ## License
 
